@@ -3,6 +3,7 @@ import { HeroSlider } from "@/components/hero-slider"
 import { AboutSection } from "@/components/about-section"
 import { BlogSection } from "@/components/blog-section"
 import  Footer  from "@/components/footer"
+import ContactsSection from "@/components/contacts"
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <HeroSlider />
         <BlogSection />
         <AboutSection />
+        <ContactsSection />
       </main>
       <Footer />
     </div>

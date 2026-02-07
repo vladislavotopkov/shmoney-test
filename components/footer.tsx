@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="relative z-10 flex items-center justify-center h-full px-4 sm:px-8 md:px-12 lg:px-16">
         <h2
           className={`
-            text-[clamp(120px,16vw,340px)]
+           text-[clamp(90px,14vw,180px)]
             md:text-[clamp(140px,18vw,380px)]
             lg:text-[clamp(160px,20vw,420px)]
             font-black

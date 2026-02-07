@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <head>
+        <meta name="robots" content="noindex, nofollow" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
