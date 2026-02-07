@@ -21,18 +21,7 @@ export default function RootLayout({
     <html lang="ru" suppressHydrationWarning>
       <head>
         <meta name="robots" content="noindex, nofollow" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (prefersDark) {
-                  document.documentElement.classList.add('dark');
-                }
-              })();
-            `,
-          }}
-        />
+        
       </head>
       <body className={`${nunito.variable} ${firaCode.variable} font-sans antialiased`}>{children}</body>
     </html>
