@@ -8,7 +8,7 @@ const nunito = Nunito({ subsets: ['latin', 'cyrillic'], variable: '--font-nunito
 const firaCode = Fira_Code({ subsets: ['latin', 'cyrillic'], variable: '--font-fira-code' })
 
 export const metadata: Metadata = {
-  title: 'TechPulse | IT-технологии и разработка',
+  title: 'Сеньёр | IT-технологии и разработка',
   description: 'Технический обзор IT-технологий, языков программирования и лайфхаки в разработке',
 }
 

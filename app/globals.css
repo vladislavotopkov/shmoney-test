@@ -14,38 +14,58 @@ body {
 
 @layer base {
   :root {
-    --background: 40 33% 98%;
-    --foreground: 220 25% 18%;
-    --card: 40 30% 100%;
-    --card-foreground: 220 25% 18%;
-    --popover: 40 30% 100%;
-    --popover-foreground: 220 25% 18%;
-    --primary: 197 100% 44%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 40 25% 94%;
-    --secondary-foreground: 220 25% 18%;
-    --muted: 40 20% 94%;
-    --muted-foreground: 220 15% 50%;
-    --accent: 197 100% 44%;
+    /* Тёмная тема теперь основная — как в футере */
+    --background: 220 30% 8%;             /* очень тёмный синий-фиолетовый */
+    --foreground: 0 0% 98%;               /* почти белый текст */
+
+    --card: 220 28% 12%;                  /* чуть светлее фона для карточек */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 28% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 270 80% 45%;          /* ≈ #7c3aed или близко к violet */
+--primary-foreground: 0 0% 100%;
+
+
+    --secondary: 220 25% 18%;             /* тёмный серо-синий */
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 15% 65%;      /* сероватый для второстепенного текста */
+
+    --accent: 270 70% 55%;
+--ring: 270 80% 45%;               /* чуть светлее primary для hover/акцентов */
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
+
+    --destructive: 348 80% 55%;           /* красноватый, но не слишком кричащий */
     --destructive-foreground: 0 0% 98%;
-    --border: 40 20% 88%;
-    --input: 40 20% 88%;
-    --ring: 197 100% 44%;
-    --chart-1: 197 100% 44%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 1rem;
-    --sidebar-background: 40 30% 100%;
-    --sidebar-foreground: 220 25% 18%;
+
+    --border: 220 20% 20%;                /* тёмные границы */
+    --input: 220 20% 20%;
+    --ring: 197 100% 44%;                 /* фокус/кольцо = primary */
+
+    /* Градиентные варианты для текста / эффектов как в футере */
+    --gradient-from: 0 0% 100%;           /* white */
+    --gradient-via: 197 90% 80%;          /* светлый cyan */
+    --gradient-to:   197 100% 60%;        /* насыщенный cyan ближе к primary */
+
+    --chart-1: 197 100% 50%;
+    --chart-2: 197 80% 60%;
+    --chart-3: 220 60% 50%;
+    --chart-4: 197 100% 44%;
+    --chart-5: 220 80% 65%;
+
+    --radius: 0.75rem;                    /* чуть меньше скруглений — выглядит современнее */
+
+    /* Sidebar (если используешь) */
+    --sidebar-background: 220 32% 9%;
+    --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 197 100% 44%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 40 25% 94%;
-    --sidebar-accent-foreground: 220 25% 18%;
-    --sidebar-border: 40 20% 88%;
+    --sidebar-accent: 197 60% 20%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 20% 18%;
     --sidebar-ring: 197 100% 44%;
   }
 
@@ -93,3 +113,15 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+@keyframes gradient-x {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient-x { animation: gradient-x 18s ease infinite; background-size: 200% 200%; }
+
+@keyframes line-in { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.animate-line-in { animation: line-in 2s ease-out forwards; }
+.delay-300 { animation-delay: 0.8s; }

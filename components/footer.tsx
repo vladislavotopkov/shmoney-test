@@ -1,117 +1,35 @@
-import Link from "next/link"
-import { Code2, Github, Twitter, Send } from "lucide-react"
-
-const footerLinks = {
-  platform: [
-    { label: "О нас", href: "#about" },
-    { label: "Блог", href: "#blog" },
-    { label: "Авторы", href: "#" },
-    { label: "Контакты", href: "#" },
-  ],
-  resources: [
-    { label: "Документация", href: "#" },
-    { label: "Туториалы", href: "#" },
-    { label: "API Reference", href: "#" },
-    { label: "Changelog", href: "#" },
-  ],
-  legal: [
-    { label: "Политика конфиденциальности", href: "#" },
-    { label: "Условия использования", href: "#" },
-  ],
-}
-
-export function Footer() {
+export default function Footer() {
   return (
-    <footer className="border-t border-border bg-card">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <Code2 className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-foreground">TechPulse</span>
-            </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-              Технический обзор IT-технологий, языков программирования и лайфхаки в разработке.
-            </p>
-            <div className="flex gap-3">
-              <Link
-                href="#"
-                className="h-9 w-9 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="h-4 w-4" />
-              </Link>
-              <Link
-                href="#"
-                className="h-9 w-9 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-4 w-4" />
-              </Link>
-              <Link
-                href="#"
-                className="h-9 w-9 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
-                aria-label="Telegram"
-              >
-                <Send className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
+    <footer className="relative w-full h-[40vh] min-h-[320px] md:min-h-[420px] lg:min-h-[520px] overflow-hidden">
+      {/* Градиентный фон */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-purple-950 to-fuchsia-950" />
+      
+      {/* Noise overlay — если файла noise.png нет, можно убрать или заменить на css noise */}
+      <div className="absolute inset-0 opacity-[0.06] bg-[url('/noise.png')] pointer-events-none mix-blend-overlay" />
 
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Платформа</h3>
-            <ul className="space-y-2">
-              {footerLinks.platform.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className="relative z-10 flex items-center justify-center h-full px-4 sm:px-8 md:px-12 lg:px-16">
+        <h2
+          className={`
+            text-[clamp(120px,16vw,340px)]
+            md:text-[clamp(140px,18vw,380px)]
+            lg:text-[clamp(160px,20vw,420px)]
+            font-black
+            text-transparent
+            bg-clip-text
+            bg-gradient-to-b from-white via-indigo-200 to-purple-300/90
+            drop-shadow-[0_0_60px_rgba(168,85,247,0.55)] md:drop-shadow-[0_0_80px_rgba(168,85,247,0.6)]
+          `}
+          style={{
+            textShadow: '0 0 50px rgba(168,85,247,0.4), 0 0 100px rgba(168,85,247,0.25)',
+          }}
+        >
+          СЕНЬЁР
+        </h2>
+      </div>
 
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Ресурсы</h3>
-            <ul className="space-y-2">
-              {footerLinks.resources.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Правовая информация</h3>
-            <ul className="space-y-2">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-border mt-12 pt-8 text-center">
-          <p className="text-muted-foreground text-sm">
-            {'© 2026 TechPulse. Все права защищены.'}
-          </p>
-        </div>
+      {/* Копирайт */}
+      <div className="absolute bottom-6 sm:bottom-8 left-0 right-0 text-center text-white/40 text-xs sm:text-sm tracking-widest uppercase">
+        © {new Date().getFullYear()} · СЕНЬЁР
       </div>
     </footer>
   )
